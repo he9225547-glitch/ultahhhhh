@@ -1,0 +1,95 @@
+/* Background */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e6d5f7, #cbb7e9);
+  color: #4a2c6d;
+  overflow: hidden;
+}
+
+/* Container */
+.container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.85);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #7d4ca5;
+}
+
+/* Messages fade-in */
+.messages .msg {
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.messages .msg:nth-child(1) { animation-delay: 0.5s; }
+.messages .msg:nth-child(2) { animation-delay: 2.5s; }
+.messages .msg:nth-child(3) { animation-delay: 4.5s; }
+.messages .msg:nth-child(4) { animation-delay: 6.5s; }
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #6c4b8d;
+}
+
+/* Balloons */
+.balloon-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.balloon {
+  position: absolute;
+  bottom: -150px;
+  width: 60px;
+  height: 80px;
+  background: #d8b4f8;
+  border-radius: 50% 50% 50% 50%;
+  animation: floatUp var(--dur, 18s) linear infinite;
+  opacity: 0.8;
+}
+
+.balloon::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background: #555;
+  transform: translateX(-50%);
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); }
+  100% { transform: translateY(-120vh) scale(1.1); }
+}
